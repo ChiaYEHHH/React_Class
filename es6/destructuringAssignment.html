@@ -7,14 +7,19 @@
 <script type="text/babel">
 // #1 取出特定值作為變數
 const person = {
-  name: '小明',
-  age: 16,
+  name1: '小明',
+  age1: 16,
   like: '鍋燒意麵'
 }
 
-// #2 陣列解構
-const array = ['小明', '杰倫', '漂亮阿姨'];
+const {name1, age1} =person;
+console.log(name1, age1);
 
+
+// #2 陣列解構
+const arrayName = ['小明', '杰倫', '漂亮阿姨'];
+const [mm, jj, aa] = arrayName;
+console.log(mm, jj, aa);
 
 // #3 解構加展開
 const people = {
@@ -35,33 +40,57 @@ const people = {
   }
 }
 
+const {Ming, ...other} = people;
+console.log(Ming, other);
+
+const {age,like} = Ming;
+console.log(age,like);
+
 // #4 解構加上重新命名
+const { Ming: MM} = people;
+console.log(MM);
+
 
 
 // #5 函式參數解構
-
+const personM ={
+  name: '小明M',
+  age: 16,
+  like: '鍋燒意麵M'
+};
+function callName(params){
+  console.log(params);
+  
+}
+function callParam({name,age}){
+  console.log(name,age);
+  
+}
+callName(personM);
+callParam(personM);
 
 
 // #6 解構在 React 的運用
 const { useState } = React;
 
-function Card() {
+// function Card(props) {  // 未解構{props.person.name}
+function Card({person}) {  // 已解構{person.name}
   return (<div className="card">
     <div className="card-body">
-
+      {person.name}
     </div>
   </div>)
 }
 
 function App() {
-  const [person, setPerson] = useState({
+  const [personS, setPerson] = useState({
     name: '小明',
   })
 
   return (
     <div>
-      我是{person.name}
-      <Card person={person} ></Card>
+      我是{personS.name}
+      <Card person={personS} ></Card>
     </div>
   )
 }
