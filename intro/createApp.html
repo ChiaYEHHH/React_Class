@@ -6,6 +6,28 @@
 <!-- 五步驟，載入 React -->
 <!-- https://reactjs.org/docs/cdn-links.html#gatsby-focus-wrapper -->
 <!-- https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx -->
+<script src="../javascripts/react.development.js"></script>  
+<script src="../javascripts/react-dom.development.js"></script>
+<script src="../javascripts/babel.min.js"></script>
+
+<div id="root"></div>
+
+
+
+
+
+
+
+<script type="text/babel">
+  console.log(React,ReactDOM);
+  function App(){
+    return <h1>hello React</h1>
+  }
+ ReactDOM
+ .createRoot(document.getElementById('root'))
+ .render(<App />);
+</script>
+
 
 <!-- 補充說明：定義 App 元件時，可自訂名稱但請使用大寫做開頭 -->
 <!-- 詳細說明文件：https://zh-hant.reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized -->
